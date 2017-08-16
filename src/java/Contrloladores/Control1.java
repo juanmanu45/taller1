@@ -35,26 +35,35 @@ public class Control1 extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-           
-            String id=request.getParameter("idsis");
-            String nombre=request.getParameter("nombre");
-            String num=request.getParameter("numerot");
+
+            String id = request.getParameter("idsis");
+            String nombre = request.getParameter("nombre");
+            String num = request.getParameter("numerot");
+
+            char nom[] = nombre.toCharArray();
+            int numerot = Integer.parseInt(num);
+            int ids = Integer.parseInt(id);
+
+            if (nom != null) {
+                Esquema es = new Esquema(ids, nom, numerot);
+                Sistemas sis = new Sistemas();
+                
+                sis.insertarEsquema(es.getId(), es.getNombre(), es.getNumTablas());
+
+                RequestDispatcher rd = getServletContext().getRequestDispatcher("index.html");
+                String respuesta = null;
+                request.setAttribute("respuesta", respuesta);
+                rd.forward(request, response);
+
+            } else {
+                String respuesta="llene los campos correctamente";
+                request.setAttribute(respuesta, "respuesta");
+                response.sendRedirect("RegistroLibro.jsp");
+                
+            }
+
             
-            char nom[]=nombre.toCharArray();
-            int numerot=Integer.parseInt(num);
-            int ids=Integer.parseInt(id);
-            
-            Esquema es=new Esquema(ids, nom, numerot);
-            
-            Sistemas sis=new Sistemas();
-            sis.insertarEsquema(ids, nom, numerot);
-            
-            RequestDispatcher rd=getServletContext().getRequestDispatcher("/index.jsp");
-            String respuesta = null;
-            request.setAttribute("respuesta",respuesta);
-            rd.forward(request, response);
-            
-            
+
         }
     }
 

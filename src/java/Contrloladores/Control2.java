@@ -5,8 +5,13 @@
  */
 package Contrloladores;
 
+import Archivos.Sistemas;
+import Archivos.Tablas;
+import Modelo.Esquema;
+import Modelo.Tabla;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -31,16 +36,33 @@ public class Control2 extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Control2</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet Control2 at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+           
+            String ids = request.getParameter("idsis");
+            String nombre = request.getParameter("nombre");
+           
+            String id2=request.getParameter("idtabla");
+
+            char nom[] = nombre.toCharArray();
+            int idt = Integer.parseInt(id2);
+            int idsis = Integer.parseInt(ids);
+
+            if (nom != null) {
+                Tabla t=new Tabla(idt, idsis, nombre);
+                Tablas tab=new Tablas();
+                
+                
+                
+                RequestDispatcher rd = getServletContext().getRequestDispatcher("index.html");
+                String respuesta = null;
+                request.setAttribute("respuesta", respuesta);
+                rd.forward(request, response);
+
+            } else {
+                String respuesta="llene los campos correctamente";
+                request.setAttribute(respuesta, "respuesta");
+                response.sendRedirect("RegistroLibro.jsp");
+                
+            }
         }
     }
 

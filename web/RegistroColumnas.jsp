@@ -13,7 +13,7 @@
     </head>
     <body>
         <p>NUEVA COLUMNA:</p>
-        <form method="GET" action="registro" name="registrar">&nbsp;<br>
+        <form  action="registro"method="GET" >&nbsp;<br>
             <table style="width: 1191px; height: 176px;" border="1">
                 <tbody>
                     <tr>
