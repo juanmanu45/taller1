@@ -11,22 +11,16 @@ package Modelo;
  */
 public class Columna {
     
-    private int foranea ;
+    private int idTabla ;
     private int idCol;
-    private String nombre;
+    private char[] nombre;
 
-    public Columna(int foranea, int idCol, String nombre) {
-        this.foranea = foranea;
-        this.idCol = idCol;
-        this.nombre = nombre;
+    public int getIdTabla() {
+        return idTabla;
     }
 
-    public int getForanea() {
-        return foranea;
-    }
-
-    public void setForanea(int foranea) {
-        this.foranea = foranea;
+    public void setIdTabla(int idTabla) {
+        this.idTabla = idTabla;
     }
 
     public int getIdCol() {
@@ -37,13 +31,21 @@ public class Columna {
         this.idCol = idCol;
     }
 
-    public String getNombre() {
+    public char[] getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
+    public void setNombre(char[] nombre) {
         this.nombre = nombre;
     }
+
+    public Columna(int idTabla, int idCol, char[] nombre) {
+        this.idTabla = idTabla;
+        this.idCol = idCol;
+        this.nombre = nombre;
+    }
+    
+
     
     
     

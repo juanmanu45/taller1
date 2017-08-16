@@ -6,8 +6,10 @@
 package Contrloladores;
 
 import Archivos.Sistemas;
+import Modelo.Esquema;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -39,10 +41,18 @@ public class Control1 extends HttpServlet {
             String num=request.getParameter("numerot");
             
             char nom[]=nombre.toCharArray();
+            int numerot=Integer.parseInt(num);
+            int ids=Integer.parseInt(id);
             
-            
+            Esquema es=new Esquema(ids, nom, numerot);
             
             Sistemas sis=new Sistemas();
+            sis.insertarEsquema(ids, nom, numerot);
+            
+            RequestDispatcher rd=getServletContext().getRequestDispatcher("/index.jsp");
+            String respuesta = null;
+            request.setAttribute("respuesta",respuesta);
+            rd.forward(request, response);
             
             
         }

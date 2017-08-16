@@ -10,25 +10,20 @@ package Modelo;
  * @author Labing I5
  */
 public class Esquema {
-    private int id;
-    private String nombre;
+   private int id;
+   private char[] nombre;
     private int numTablas;
 
-    public int getNumTablas() {
-        return numTablas;
+    public Esquema() {
     }
-
-    public void setNumTablas(int numTablas) {
-        this.numTablas = numTablas;
-    }
-
-   
-
-    public Esquema(int id, String nombre, int numTablas) {
+    
+    
+    public Esquema(int id, char[] nombre, int numTablas) {
         this.id = id;
         this.nombre = nombre;
         this.numTablas = numTablas;
     }
+
     public int getId() {
         return id;
     }
@@ -37,16 +32,22 @@ public class Esquema {
         this.id = id;
     }
 
-    public String getNombre() {
+    public char[] getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
+    public void setNombre(char[] nombre) {
         this.nombre = nombre;
     }
+
+    public int getNumTablas() {
+        return numTablas;
+    }
+
+    public void setNumTablas(int numTablas) {
+        this.numTablas = numTablas;
+    }
     
-    
-    
-    
-    
-}
+
+
+} 

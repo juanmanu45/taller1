@@ -7,7 +7,7 @@
     </head>
     <body>
         <p>NUEVO SISTEMA:</p>
-        <form method="GET" action="Control1" name="registrar">&nbsp;<br>
+        <form method="GET" action="Control1">&nbsp;<br>
             <table style="width: 1191px; height: 176px;" border="1">
                 <tbody>
                     <tr>
