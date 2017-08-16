@@ -6,6 +6,7 @@
 package Archivos;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.RandomAccessFile;
 
 /**
@@ -21,7 +22,10 @@ public class Tablas {
         tablas = new RandomAccessFile("tablas.txt", "rw");
     }
     
-    public void insertarTabla(){
+    public void insertarTabla() throws IOException{
+        
+        tablas.seek(0);
+        
         
     }
 
