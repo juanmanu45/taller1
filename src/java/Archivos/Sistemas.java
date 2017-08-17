@@ -33,8 +33,13 @@ public class Sistemas {
             int desN = 20 - nombre.length;
 
             raf.writeInt(idesquema);
+            int cont=0;
             for (int i = 0; i < nombre.length; i++) {
                 raf.writeChar(nombre[i]);
+                cont=i;
+            }
+            for (int i = cont; i < 10; i++) {
+                raf.writeChar(' ');
             }
             long pos1 = raf.getFilePointer();
             raf.seek(desN + pos1);
@@ -56,7 +61,7 @@ public class Sistemas {
         }
         es.setNombre(nom);
 
-        raf.seek(44);
+     
         System.out.println("  " + raf.readInt());
         
         return es;

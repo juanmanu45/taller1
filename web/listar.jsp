@@ -16,7 +16,10 @@
          <%
             Esquema respuesta = new Esquema();
 
-            respuesta = (Esquema) request.getAttribute("es");
+            respuesta = (Esquema) request.getAttribute("respuesta");
+            if (respuesta!=null) {
+                    
+               
         %>
         <h1>
             <%
@@ -32,6 +35,7 @@
                 String num = String.valueOf(respuesta.getNumTablas());
             %>
             <%=num%>
+            <% }%>
         </h1>
            </body>
 </html>
