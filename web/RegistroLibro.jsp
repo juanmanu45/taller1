@@ -10,15 +10,30 @@
     </head>
     <body>
         <p>NUEVO SISTEMA:</p>
-        <h1><%
-            String respuesta = (String) request.getAttribute("respuesta");
-            if (respuesta != null) {
-            %>  
-            <h1><%=respuesta%></h1>
+         <%
+            Esquema respuesta = new Esquema();
 
-            <%   }
+            respuesta = (Esquema) request.getAttribute("respuesta");
+            if (respuesta!=null) {
+                    
+               
+        %>
+        <h1>
+            <%
+                String id = String.valueOf(respuesta.getId());
+            %>
+            <%=id%>
+            <%
+                String nombre = String.valueOf(respuesta.getNombre());
 
-            %></h1>
+            %>
+            <%=nombre%>
+            <%
+                String num = String.valueOf(respuesta.getNumTablas());
+            %>
+            <%=num%>
+            <% }%>
+        </h1>
         
         <form  action="Control1" method="POST">&nbsp;<br>
             <table style="width: 1191px; height: 176px;" border="1">

@@ -24,8 +24,8 @@ public class Tablas {
     }
 
     public void insertarTabla(int idt, int ids, char[] nombre, int pos) throws IOException {
-        
-        Apuntadores ap= new Apuntadores();
+
+        Apuntadores ap = new Apuntadores();
         if (pos != 0) {
             raf.seek(pos);
 
@@ -55,10 +55,29 @@ public class Tablas {
                     raf.seek(desN + pos1);
 
                     raf.writeInt(ids);
-                     ap.dejarApu1((int) raf.getFilePointer());
+                    ap.dejarApu1((int) raf.getFilePointer());
                 }
             }
 
+        }
+
+    }
+
+    public void primerinsertartabla(int ids, char[] nombre, int idt) throws IOException {
+        Apuntadores ap=new Apuntadores();
+        raf.seek(0);
+        if (nombre.length <= 20) {
+            int desN = 20 - nombre.length;
+
+            raf.writeInt(idt);
+            for (int i = 0; i < nombre.length; i++) {
+                raf.writeChar(nombre[i]);
+            }
+            long pos1 = raf.getFilePointer();
+            raf.seek(desN + pos1);
+
+            raf.writeInt(ids);
+            ap.dejarApu1((int) raf.getFilePointer());
         }
 
     }
