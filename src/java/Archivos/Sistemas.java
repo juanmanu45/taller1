@@ -26,27 +26,40 @@ public class Sistemas {
     }
 
     public void insertarEsquema(int idesquema, char nombre[], int numcol) throws FileNotFoundException, IOException {
-        RandomAccessFile file = new RandomAccessFile("file1.txt", "rw");
-        raf.seek(0);
-        raf.writeInt(idesquema);
-        for (int i = 0; i < nombre.length; i++) {
-            raf.writeChar(nombre[i]);
-        }
-        raf.writeInt(numcol);
 
-    }
-    
-    public void leerEsquema() throws IOException{
         raf.seek(0);
-        Esquema es=new Esquema();
-        raf.readInt();
-        for (int i = 0; i < es.getNombre().length; i++) {
-            raf.readChar();
-            
+
+        if (nombre.length <= 20) {
+            int desN = 20 - nombre.length;
+
+            raf.writeInt(idesquema);
+            for (int i = 0; i < nombre.length; i++) {
+                raf.writeChar(nombre[i]);
+            }
+            long pos1 = raf.getFilePointer();
+            raf.seek(desN + pos1);
+
+            raf.writeInt(numcol);
+
         }
-        raf.readInt();
+    }
+
+    public Esquema leerEsquema() throws IOException {
+        raf.seek(0);
+        Esquema es = new Esquema();
+        es.setId(raf.readInt());
+        char[] nom = new char[20];
+        for (int i = 0; i < 20; i++) {
+
+            nom[i] = raf.readChar();
+        }
+        es.setNombre(nom);
+
+        raf.seek(44);
+        System.out.println("  " + raf.readInt());
         
-        
+        return es;
+
     }
 
 }

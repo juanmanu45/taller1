@@ -47,9 +47,10 @@ public class Control2 extends HttpServlet {
             int idsis = Integer.parseInt(ids);
 
             if (nom != null) {
-                Tabla t=new Tabla(idt, idsis, nombre);
+                Tabla t=new Tabla(idt, idsis, nom);
                 Tablas tab=new Tablas();
                 
+                tab.insertarTabla(t.getIdEs(), t.getIdt(), t.getNombre());
                 
                 
                 RequestDispatcher rd = getServletContext().getRequestDispatcher("index.html");

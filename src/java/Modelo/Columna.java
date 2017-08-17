@@ -39,12 +39,7 @@ public class Columna {
         this.nombre = nombre;
     }
 
-    public Columna(int idTabla, int idCol, char[] nombre) {
-        this.idTabla = idTabla;
-        this.idCol = idCol;
-        this.nombre = nombre;
-    }
-    
+   
 
     
     

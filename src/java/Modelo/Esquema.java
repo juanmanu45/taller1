@@ -18,12 +18,7 @@ public class Esquema {
     }
     
     
-    public Esquema(int id, char[] nombre, int numTablas) {
-        this.id = id;
-        this.nombre = nombre;
-        this.numTablas = numTablas;
-    }
-
+    
     public int getId() {
         return id;
     }

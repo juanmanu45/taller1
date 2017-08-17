@@ -6,9 +6,11 @@
 package Contrloladores;
 
 import Archivos.Sistemas;
+import Archivos.Tablas;
 import Modelo.Esquema;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Juan Manuel
  */
-public class Control1 extends HttpServlet {
+public class ListarEsquemas extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,48 +36,15 @@ public class Control1 extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
 
-            String id = request.getParameter("idsis");
-            String nombre = request.getParameter("nombre");
-            String num = request.getParameter("numerot");
-            
-           
+            Esquema es = new Esquema();
+            Sistemas sis = new Sistemas();
 
-            
-            
-            
-            int numerot = Integer.parseInt(num);
-            int ids = Integer.parseInt(id);
+            es = sis.leerEsquema();
 
-            if (id!= null) {
-                Esquema es=new Esquema();
-                es.setId(ids);
-                
-                for (int i = 0; i < 20; i++) {
-                    es.setNombre(nombre.toCharArray());
-                }
-                
-                
-                es.setNumTablas(numerot);
-                
-                Sistemas sis = new Sistemas();
-                
-                sis.insertarEsquema(es.getId(), es.getNombre(), es.getNumTablas());
-
-                RequestDispatcher rd = getServletContext().getRequestDispatcher("index.html");
-                String respuesta = null;
-                request.setAttribute("respuesta", respuesta);
-                rd.forward(request, response);
-
-            } else {
-                String respuesta="llene los campos correctamente";
-                request.setAttribute(respuesta, "respuesta");
-                response.sendRedirect("RegistroLibro.jsp");
-                
-            }
-
-            
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("RegistroLibro.jsp");
+            request.setAttribute("respuesta", es);
+            rd.forward(request, response);
 
         }
     }

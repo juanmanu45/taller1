@@ -1,3 +1,6 @@
+<%@page import="Modelo.Esquema"%>
+<%@page import="Contrloladores.ListarEsquemas"%>
+<%@page import="Archivos.Sistemas"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -28,6 +31,28 @@
             </table>
             <input name="enviar" type="submit">
         </form>
+        <%
+            Esquema respuesta = new Esquema();
+
+            respuesta = (Esquema) request.getAttribute("es");
+        %>
+        <h1>
+            <%
+                String id = String.valueOf(respuesta.getId());
+            %>
+            <%=id%>
+            <%
+                String nombre = String.valueOf(respuesta.getNombre());
+
+            %>
+            <%=nombre%>
+            <%
+                String num = String.valueOf(respuesta.getNumTablas());
+            %>
+            <%=num%>
+        </h1>
+       
+
         <p><br>
         </p>
     </body>

@@ -37,6 +37,15 @@
             </table>
             <input name="enviar" type="submit"><br><a href="RegistroColumnas.jsp">INGRESAR COLUMNA </a><br>
         </form>
+        <h1><%
+            
+
+
+            %></h1>
+
+
+
+
         <p><br>
         </p>
     </body></html>

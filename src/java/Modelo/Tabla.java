@@ -13,12 +13,12 @@ public class Tabla {
     
     private int idt;
     private int idEs;
-    private String nombre;
+    private char[] nombre=new char[20];
 
-    public Tabla(int idt, int idEs, String nombre) {
-        this.idt = idt;
-        this.idEs = idEs;
-        this.nombre = nombre;
+    
+
+    public Tabla() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public int getIdt() {
@@ -37,11 +37,11 @@ public class Tabla {
         this.idEs = idEs;
     }
 
-    public String getNombre() {
+    public char[] getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
+    public void setNombre(char[] nombre) {
         this.nombre = nombre;
     }
     
