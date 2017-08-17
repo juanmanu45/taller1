@@ -50,6 +50,7 @@ public class Sistemas {
         es.setId(raf.readInt());
         char[] nom = new char[20];
         for (int i = 0; i < 20; i++) {
+            
 
             nom[i] = raf.readChar();
         }

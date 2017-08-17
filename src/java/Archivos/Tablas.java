@@ -16,39 +16,29 @@ import java.io.RandomAccessFile;
  */
 public class Tablas {
 
-    RandomAccessFile tablas;
+    RandomAccessFile raf;
 
     public Tablas() throws FileNotFoundException {
 
-        tablas = new RandomAccessFile("tablas.txt", "rw");
+        raf = new RandomAccessFile("tablas.txt", "rw");
     }
 
-    public void insertarTabla(int idt, int ids, char[] nombre) throws IOException {
+    public void insertarTabla(int idt, int ids, char[] nombre,int pos) throws IOException {
+        raf.seek(pos);
 
-        tablas.seek(0);
+        if (nombre.length <= 20) {
+            int desN = 20 - nombre.length;
 
-        tablas.writeInt(ids);
-        for (int i = 0; i < nombre.length; i++) {
-            tablas.writeChar(nombre[i]);
+            raf.writeInt(idt);
+            for (int i = 0; i < nombre.length; i++) {
+                raf.writeChar(nombre[i]);
+            }
+            long pos1 = raf.getFilePointer();
+            raf.seek(desN + pos1);
+
+            raf.writeInt(ids);
+
         }
-        tablas.writeInt(idt);
-
-    }
-
-    public Tabla leerTablas() throws IOException {
-        
-        Tabla t=new Tabla();
-         tablas.seek(0);
-        t.setIdEs(tablas.readInt());
-        ArrayList
-        
-        for (int i = 0; i < 10; i++) {
-            
-        }
-        t.setNombre(tablas.readChar());
-       
-         
-        return t;
 
     }
 

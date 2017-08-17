@@ -10,7 +10,17 @@
     </head>
     <body>
         <p>NUEVO SISTEMA:</p>
-        <form  action="Control1" method="GET">&nbsp;<br>
+        <h1><%
+            String respuesta = (String) request.getAttribute("respuesta");
+            if (respuesta != null) {
+            %>  
+            <h1><%=respuesta%></h1>
+
+            <%   }
+
+            %></h1>
+        
+        <form  action="Control1" method="POST">&nbsp;<br>
             <table style="width: 1191px; height: 176px;" border="1">
                 <tbody>
                     <tr>
@@ -31,27 +41,7 @@
             </table>
             <input name="enviar" type="submit">
         </form>
-        <%
-            Esquema respuesta = new Esquema();
-
-            respuesta = (Esquema) request.getAttribute("es");
-        %>
-        <h1>
-            <%
-                String id = String.valueOf(respuesta.getId());
-            %>
-            <%=id%>
-            <%
-                String nombre = String.valueOf(respuesta.getNombre());
-
-            %>
-            <%=nombre%>
-            <%
-                String num = String.valueOf(respuesta.getNumTablas());
-            %>
-            <%=num%>
-        </h1>
-       
+        <h3><a href="RegistroTablas.jsp"</a>insertar tablas</h3>
 
         <p><br>
         </p>

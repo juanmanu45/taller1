@@ -48,32 +48,26 @@ public class Control1 extends HttpServlet {
             int numerot = Integer.parseInt(num);
             int ids = Integer.parseInt(id);
 
-            if (id!= null) {
+            
                 Esquema es=new Esquema();
                 es.setId(ids);
                 
                 for (int i = 0; i < 20; i++) {
                     es.setNombre(nombre.toCharArray());
                 }
-                
-                
-                es.setNumTablas(numerot);
-                
-                Sistemas sis = new Sistemas();
-                
+                                
+                es.setNumTablas(numerot);                
+                Sistemas sis = new Sistemas();               
                 sis.insertarEsquema(es.getId(), es.getNombre(), es.getNumTablas());
 
-                RequestDispatcher rd = getServletContext().getRequestDispatcher("index.html");
-                String respuesta = null;
+                RequestDispatcher rd = getServletContext().getRequestDispatcher("/RegistroLibro.jsp");
+                String respuesta = "hola";
                 request.setAttribute("respuesta", respuesta);
                 rd.forward(request, response);
 
-            } else {
-                String respuesta="llene los campos correctamente";
-                request.setAttribute(respuesta, "respuesta");
-                response.sendRedirect("RegistroLibro.jsp");
+         
                 
-            }
+            
 
             
 

@@ -46,8 +46,13 @@ public class Control2 extends HttpServlet {
             int idt = Integer.parseInt(id2);
             int idsis = Integer.parseInt(ids);
 
-            if (nom != null) {
-                Tabla t=new Tabla(idt, idsis, nom);
+            
+                Tabla t=new Tabla();
+                
+                t.setIdEs(idsis);
+                t.setIdt(idt);
+                t.setNombre(nom);
+                
                 Tablas tab=new Tablas();
                 
                 tab.insertarTabla(t.getIdEs(), t.getIdt(), t.getNombre());
@@ -58,12 +63,10 @@ public class Control2 extends HttpServlet {
                 request.setAttribute("respuesta", respuesta);
                 rd.forward(request, response);
 
-            } else {
-                String respuesta="llene los campos correctamente";
-                request.setAttribute(respuesta, "respuesta");
-                response.sendRedirect("RegistroLibro.jsp");
+           
+               
                 
-            }
+            
         }
     }
 
