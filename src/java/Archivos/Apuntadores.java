@@ -19,6 +19,10 @@ public class Apuntadores {
     public Apuntadores(RandomAccessFile raf) throws FileNotFoundException {
        raf=new RandomAccessFile("apunta.txt","rw");
     }
+
+    Apuntadores() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     public void dejarApu1(int pos1) throws IOException{
         raf.seek(0);
         raf.writeInt(pos1);
@@ -26,14 +30,14 @@ public class Apuntadores {
     }
      public void dejarApu2(int pos2) throws IOException{
         
-        raf.seek(5);
+        raf.seek(4);
         raf.writeInt(pos2);
         
            
     }
       public void dejarApu3( int pos3) throws IOException{
         
-        raf.seek(10);
+        raf.seek(8);
         raf.writeInt(pos3);
            
     }
