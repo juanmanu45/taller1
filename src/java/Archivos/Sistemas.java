@@ -27,6 +27,7 @@ public class Sistemas {
 
     public void insertarEsquema(int idesquema, char nombre[], int numcol) throws FileNotFoundException, IOException {
 
+        
         raf.seek(0);
 
         if (nombre.length <= 20) {
@@ -38,7 +39,7 @@ public class Sistemas {
                 raf.writeChar(nombre[i]);
                 cont=i;
             }
-            for (int i = cont; i < 10; i++) {
+            for (int i = cont; i < desN; i++) {
                 raf.writeChar(' ');
             }
             long pos1 = raf.getFilePointer();

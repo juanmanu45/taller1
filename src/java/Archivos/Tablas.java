@@ -23,23 +23,43 @@ public class Tablas {
         raf = new RandomAccessFile("tablas.txt", "rw");
     }
 
-    public void insertarTabla(int idt, int ids, char[] nombre,int pos) throws IOException {
-        raf.seek(pos);
+    public void insertarTabla(int idt, int ids, char[] nombre, int pos) throws IOException {
+        
+        Apuntadores ap= new Apuntadores();
+        if (pos != 0) {
+            raf.seek(pos);
 
-        if (nombre.length <= 20) {
-            int desN = 20 - nombre.length;
+            if (nombre.length <= 20) {
+                int desN = 20 - nombre.length;
 
-            raf.writeInt(idt);
-            for (int i = 0; i < nombre.length; i++) {
-                raf.writeChar(nombre[i]);
+                raf.writeInt(idt);
+                for (int i = 0; i < nombre.length; i++) {
+                    raf.writeChar(nombre[i]);
+                }
+                long pos1 = raf.getFilePointer();
+                raf.seek(desN + pos1);
+
+                raf.writeInt(ids);
+                ap.dejarApu1((int) raf.getFilePointer());
+
+            } else {
+                raf.seek(0);
+                if (nombre.length <= 20) {
+                    int desN = 20 - nombre.length;
+
+                    raf.writeInt(idt);
+                    for (int i = 0; i < nombre.length; i++) {
+                        raf.writeChar(nombre[i]);
+                    }
+                    long pos1 = raf.getFilePointer();
+                    raf.seek(desN + pos1);
+
+                    raf.writeInt(ids);
+                     ap.dejarApu1((int) raf.getFilePointer());
+                }
             }
-            long pos1 = raf.getFilePointer();
-            raf.seek(desN + pos1);
-
-            raf.writeInt(ids);
 
         }
 
     }
-
 }
