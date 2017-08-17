@@ -42,7 +42,7 @@ public class ListarEsquemas extends HttpServlet {
 
             es = sis.leerEsquema();
 
-            RequestDispatcher rd = getServletContext().getRequestDispatcher("listar.jsp");
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/listar.jsp");
             request.setAttribute("respuesta", es);
             rd.forward(request, response);
 
