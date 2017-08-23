@@ -12,6 +12,26 @@
         <servlet-name>ListarEsquemas</servlet-name>
         <servlet-class>Contrloladores.ListarEsquemas</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListarTablas</servlet-name>
+        <servlet-class>Contrloladores.ListarTablas</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListarColumnas</servlet-name>
+        <servlet-class>Contrloladores.ListarColumnas</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>buscarCol</servlet-name>
+        <servlet-class>Contrloladores.buscarCol</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>buscarEs</servlet-name>
+        <servlet-class>Contrloladores.buscarEs</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>buscarTa</servlet-name>
+        <servlet-class>Contrloladores.buscarTa</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Control1</servlet-name>
         <url-pattern>/Control1</url-pattern>
@@ -23,6 +43,26 @@
     <servlet-mapping>
         <servlet-name>ListarEsquemas</servlet-name>
         <url-pattern>/ListarEsquemas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListarTablas</servlet-name>
+        <url-pattern>/ListarTablas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListarColumnas</servlet-name>
+        <url-pattern>/ListarColumnas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>buscarCol</servlet-name>
+        <url-pattern>/buscarCol</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>buscarEs</servlet-name>
+        <url-pattern>/buscarEs</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>buscarTa</servlet-name>
+        <url-pattern>/buscarTa</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

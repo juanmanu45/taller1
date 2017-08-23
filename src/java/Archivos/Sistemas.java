@@ -5,11 +5,13 @@
  */
 package Archivos;
 
+import Arboles.Arbol1;
 import Modelo.Esquema;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.util.ArrayList;
 
 /**
  *
@@ -17,27 +19,30 @@ import java.io.RandomAccessFile;
  */
 public class Sistemas {
 
-    RandomAccessFile raf = null;
+     RandomAccessFile raf = null;
+    public Arbol1 ar;
 
     public Sistemas() throws FileNotFoundException {
-        raf = new RandomAccessFile("sistemas.txt", "rw");
-        File arc = new File("sistemas.txt");
-        System.out.println(arc.getAbsolutePath());
+        raf = new RandomAccessFile("Esquemas.txt", "rw");
+
     }
 
     public void insertarEsquema(int idesquema, char nombre[], int numcol) throws FileNotFoundException, IOException {
 
+        long tamaño = raf.length();
         
-        raf.seek(0);
+        ar.insertar(idesquema, (int) tamaño);
+        
 
+        raf.seek(tamaño);
         if (nombre.length <= 20) {
             int desN = 20 - nombre.length;
 
             raf.writeInt(idesquema);
-            int cont=0;
+            int cont = 0;
             for (int i = 0; i < nombre.length; i++) {
                 raf.writeChar(nombre[i]);
-                cont=i;
+                cont = i;
             }
             for (int i = cont; i < desN; i++) {
                 raf.writeChar(' ');
@@ -48,25 +53,40 @@ public class Sistemas {
             raf.writeInt(numcol);
 
         }
+
+       
     }
 
-    public Esquema leerEsquema() throws IOException {
-        raf.seek(0);
+    public Esquema leerUnEsquema(long pos) throws IOException {
+        
+
+        raf.seek(pos);
         Esquema es = new Esquema();
         es.setId(raf.readInt());
         char[] nom = new char[20];
         for (int i = 0; i < 20; i++) {
-            
 
             nom[i] = raf.readChar();
         }
         es.setNombre(nom);
 
-     
-        System.out.println("  " + raf.readInt());
-        
         return es;
 
     }
+    public Esquema leer() throws IOException{
+         raf.seek(0);
+        Esquema es = new Esquema();
+        es.setId(raf.readInt());
+        char[] nom = new char[20];
+        for (int i = 0; i < 20; i++) {
+
+            nom[i] = raf.readChar();
+        }
+        es.setNombre(nom);
+
+        return es;
+    }
+
+    
 
 }

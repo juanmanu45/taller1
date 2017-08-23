@@ -5,6 +5,7 @@
  */
 package Contrloladores;
 
+import Arboles.Arbol1;
 import Archivos.Sistemas;
 import Modelo.Esquema;
 import java.io.IOException;
@@ -19,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Juan Manuel
  */
-public class Control1 extends HttpServlet {
+public class buscarEs extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,43 +35,20 @@ public class Control1 extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
+            String id = request.getParameter("id");
+            int num = Integer.parseInt(id);
 
-            String id = request.getParameter("idsis");
-            String nombre = request.getParameter("nombre");
-            String num = request.getParameter("numerot");
-            
-           
+            Sistemas sis = new Sistemas();
+            Esquema es = new Esquema();
 
-            
-            
-            
-            int numerot = Integer.parseInt(num);
-            int ids = Integer.parseInt(id);
+            Arbol1 a = new Arbol1();
+            a = sis.ar.buscar(num);
+            es = a.inOrder();
 
-            
-                Esquema es=new Esquema();
-                es.setId(ids);
-                
-                for (int i = 0; i < 20; i++) {
-                    es.setNombre(nombre.toCharArray());
-                }
-                                
-                es.setNumTablas(numerot);                
-                Sistemas sis = new Sistemas();
-                
-                sis.insertarEsquema(es.getId(), es.getNombre(), es.getNumTablas());
-
-                RequestDispatcher rd = getServletContext().getRequestDispatcher("/RegistroLibro.jsp");
-                String respuesta = "se ha insertado libro correctamente";
-                request.setAttribute("respuesta", respuesta);
-                rd.forward(request, response);
-
-         
-                
-            
-
-            
+            sis.leerUnEsquema(es.getId());
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/buscarEs.jsp");
+            request.setAttribute("respuesta", es);
+            rd.forward(request, response);
 
         }
     }

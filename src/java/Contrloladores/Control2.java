@@ -55,8 +55,7 @@ public class Control2 extends HttpServlet {
                 
                 Tablas tab=new Tablas();
                 
-                //tab.insertarTabla(t.getIdEs(), t.getIdt(), t.getNombre());
-                
+                tab.insertarTabla(idt, idt, nom, idt);
                 
                 RequestDispatcher rd = getServletContext().getRequestDispatcher("index.html");
                 String respuesta = null;

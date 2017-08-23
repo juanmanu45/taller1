@@ -13,6 +13,22 @@
         <title>JSP Page</title>
     </head>
     <body>
-        
-           </body>
+
+        <br>
+        <table border="1" width="100%">
+            <tbody>
+                <tr>
+                    <td><a href="ListarColumnas">LISTAR COLUMNAS</a></td>
+                    <td><a href="ListarTablas">LISTAR TABLAS</a></td>
+                </tr>
+                <tr>
+                    <td><a href="ListarEsquemas">LISTAR LOS ESQUEMAS </a></td>
+                    <td><a href="index.html">VOLVER AL MENU</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+    </body>
 </html>

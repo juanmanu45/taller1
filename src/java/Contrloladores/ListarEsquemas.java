@@ -40,9 +40,9 @@ public class ListarEsquemas extends HttpServlet {
             Esquema es = new Esquema();
             Sistemas sis = new Sistemas();
 
-            es = sis.leerEsquema();
+            es = sis.leer();
 
-            RequestDispatcher rd = getServletContext().getRequestDispatcher("/RegistroLibro.jsp");
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/listarEs.jsp");
             request.setAttribute("respuesta", es);
             rd.forward(request, response);
 
