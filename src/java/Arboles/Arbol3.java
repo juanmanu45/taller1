@@ -5,6 +5,9 @@
  */
 package Arboles;
 
+import Modelo.Columna;
+import Modelo.Esquema;
+
 /**
  *
  * @author Juan Manuel
@@ -60,12 +63,16 @@ public class Arbol3 {private class nodoArbol {
         }
     }
  
-    public void inOrder(){
+     public Columna inOrder(){
+        Columna sis=new Columna();
         if (!esVacio()) {
             raiz.hi.inOrder();
+            
+            sis.setIdCol(raiz.idEs);
             System.out.print("id: " +raiz.idEs +" pos: "+raiz.pos + ", "  );
             raiz.hd.inOrder();
         }
+        return sis;
     }
  
     public void posOrder(){

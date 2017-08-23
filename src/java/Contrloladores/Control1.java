@@ -39,12 +39,7 @@ public class Control1 extends HttpServlet {
             String id = request.getParameter("idsis");
             String nombre = request.getParameter("nombre");
             String num = request.getParameter("numerot");
-            
-           
-
-            
-            
-            
+             
             int numerot = Integer.parseInt(num);
             int ids = Integer.parseInt(id);
 
@@ -62,7 +57,7 @@ public class Control1 extends HttpServlet {
                 sis.insertarEsquema(es.getId(), es.getNombre(), es.getNumTablas());
 
                 RequestDispatcher rd = getServletContext().getRequestDispatcher("/RegistroLibro.jsp");
-                String respuesta = "se ha insertado libro correctamente";
+                String respuesta = "se ha insertado correctamente";
                 request.setAttribute("respuesta", respuesta);
                 rd.forward(request, response);
 

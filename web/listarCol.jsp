@@ -4,6 +4,7 @@
     Author     : Juan Manuel
 --%>
 
+<%@page import="Modelo.Columna"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +13,28 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+         <%
+            Columna respuesta = new Columna();
+
+            respuesta = (Columna) request.getAttribute("respuesta");
+            if (respuesta!=null) {
+                    
+               
+        %>
+        <h1>
+            <%
+                String id = String.valueOf(respuesta.getIdCol());
+            %>
+            <%=id%>
+            <%
+                String nombre = String.valueOf(respuesta.getNombre());
+
+            %>
+            <%=nombre%>
+            <%
+                String num = String.valueOf(respuesta.getIdTabla());
+            %>
+            <%=num%>
+            <% }%>
     </body>
 </html>

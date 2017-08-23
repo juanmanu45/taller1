@@ -55,10 +55,10 @@ public class Control2 extends HttpServlet {
                 
                 Tablas tab=new Tablas();
                 
-                tab.insertarTabla(idt, idt, nom, idt);
+               tab.insertarTabla(idt, idt, nom);
                 
-                RequestDispatcher rd = getServletContext().getRequestDispatcher("index.html");
-                String respuesta = null;
+                RequestDispatcher rd = getServletContext().getRequestDispatcher("/RegistroTablas.jsp");
+                String respuesta = "se ha insertado correctamente";
                 request.setAttribute("respuesta", respuesta);
                 rd.forward(request, response);
 

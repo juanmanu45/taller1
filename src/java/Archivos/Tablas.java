@@ -23,9 +23,9 @@ public class Tablas {
         raf = new RandomAccessFile("tablas.txt", "rw");
     }
 
-    public void insertarTabla(int idt, int ids, char[] nombre, int pos) throws IOException {
-        
-        long tamaño=raf.length();
+    public void insertarTabla(int idt, int ids, char[] nombre) throws IOException {
+
+        long tamaño = raf.length();
         raf.seek(tamaño);
 
         if (nombre.length <= 20) {
@@ -44,5 +44,20 @@ public class Tablas {
 
     }
 
-}
+    public Tabla leertablas() throws FileNotFoundException, IOException {
+        Tabla t = new Tabla();
+        raf.seek(0);
+        
+        t.setIdt(raf.readInt());
+        char[] nom = new char[20];
+        for (int i = 0; i < 20; i++) {
 
+            nom[i] = raf.readChar();
+        }
+        t.setNombre(nom);
+        t.setIdEs(raf.readInt());
+
+        return t ; 
+    }
+
+}

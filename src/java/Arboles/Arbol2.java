@@ -5,6 +5,9 @@
  */
 package Arboles;
 
+import Modelo.Esquema;
+import Modelo.Tabla;
+
 /**
  *
  * @author Juan Manuel
@@ -61,12 +64,16 @@ public class Arbol2 {
         }
     }
  
-    public void inOrder(){
+     public Tabla inOrder(){
+        Tabla sis=new Tabla();
         if (!esVacio()) {
             raiz.hi.inOrder();
+            
+            sis.setIdt(raiz.idEs);
             System.out.print("id: " +raiz.idEs +" pos: "+raiz.pos + ", "  );
             raiz.hd.inOrder();
         }
+        return sis;
     }
  
     public void posOrder(){

@@ -32,6 +32,10 @@
         <servlet-name>buscarTa</servlet-name>
         <servlet-class>Contrloladores.buscarTa</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Control3</servlet-name>
+        <servlet-class>Contrloladores.Control3</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Control1</servlet-name>
         <url-pattern>/Control1</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>buscarTa</servlet-name>
         <url-pattern>/buscarTa</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Control3</servlet-name>
+        <url-pattern>/Control3</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -5,10 +5,10 @@
  */
 package Contrloladores;
 
+import Archivos.Columnas;
 import Archivos.Sistemas;
-import Archivos.Tablas;
+import Modelo.Columna;
 import Modelo.Esquema;
-import Modelo.Tabla;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Juan Manuel
  */
-public class ListarTablas extends HttpServlet {
+public class Control3 extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,15 +37,30 @@ public class ListarTablas extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-          
-            Tabla es = new Tabla();
-            Tablas sis = new Tablas();
+          String id = request.getParameter("idcol");
+            String nombre = request.getParameter("nombre");
+            String num = request.getParameter("idtabla");
+             
+            int numerot = Integer.parseInt(num);
+            int ids = Integer.parseInt(id);
 
-            es = sis.leertablas();
+            
+                Columna es=new Columna();
+                es.setIdCol(ids);
+                
+                for (int i = 0; i < 20; i++) {
+                    es.setNombre(nombre.toCharArray());
+                }
+                                
+                es.setIdTabla(numerot);
+                Columnas sis = new Columnas();
+                
+               sis.insertarColumna(es.getIdCol(), es.getNombre(), es.getIdTabla());
 
-            RequestDispatcher rd = getServletContext().getRequestDispatcher("/listarTa.jsp");
-            request.setAttribute("respuesta", es);
-            rd.forward(request, response);
+                RequestDispatcher rd = getServletContext().getRequestDispatcher("/RegistroColumnas.jsp");
+                String respuesta = "se ha insertado correctamente";
+                request.setAttribute("respuesta", respuesta);
+                rd.forward(request, response);
         }
     }
 

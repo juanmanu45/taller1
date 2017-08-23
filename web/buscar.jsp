@@ -15,11 +15,11 @@
         <table border="1" width="100%">
       <tbody>
         <tr>
-          <td><a href="RegistroLibro.jsp">BUSCAR ESQUEMA</a></td>
-          <td><a href="">BUSCAR TABLA</a></td>
+          <td><a href="buscarEs.jsp">BUSCAR ESQUEMA</a></td>
+          <td><a href="buscarTabla.jsp">BUSCAR TABLA</a></td>
         </tr>
         <tr>
-          <td><a href="listar.jsp">BUCAR COLUMNA </a></td>
+          <td><a href="buscarCol.jsp">BUCAR COLUMNA </a></td>
           <td><a href="index.html">VOLVER AL MENU</a></td>
         </tr>
       </tbody>

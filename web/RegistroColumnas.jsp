@@ -13,7 +13,7 @@
     </head>
     <body>
         <p>NUEVA COLUMNA:</p>
-        <form  action="registro"method="GET" >&nbsp;<br>
+        <form  action="Control3"method="GET" >&nbsp;<br>
             <table style="width: 1191px; height: 176px;" border="1">
                 <tbody>
                     <tr>
@@ -30,10 +30,7 @@
                         <td>ID TABLA</td>
                         <td><input name="idtabla" type="text"></td>
                     </tr>
-                    <tr>
-                        <td>ID SISTEMA</td>
-                        <td><input name="idsis" type="text"></td>
-                    </tr>
+                    
                 </tbody>
             </table>
             <input name="enviar" type="submit">

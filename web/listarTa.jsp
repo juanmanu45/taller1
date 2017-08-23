@@ -4,6 +4,8 @@
     Author     : Juan Manuel
 --%>
 
+<%@page import="javafx.scene.control.Tab"%>
+<%@page import="Modelo.Tabla"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +14,29 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+          <%
+            Tabla respuesta = new Tabla();
+
+            respuesta = (Tabla) request.getAttribute("respuesta");
+            if (respuesta!=null) {
+                    
+               
+        %>
+        <h1>
+            <%
+                String id = String.valueOf(respuesta.getIdEs());
+            %>
+            <%=id%>
+            <%
+                String nombre = String.valueOf(respuesta.getNombre());
+
+            %>
+            <%=nombre%>
+            <%
+                String num = String.valueOf(respuesta.getIdt());
+            %>
+            <%=num%>
+            <% }%>
+        </h1>
     </body>
 </html>
